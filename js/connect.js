@@ -4,6 +4,7 @@ const handleCategory = async() =>{
 
     const tabContainer = document.getElementById('tab-container');
 
+
     data.data.slice(0, 4).forEach((category) =>{
         const div = document.createElement("div");
         div.innerHTML = `
@@ -27,21 +28,29 @@ const handleLoadCategory = async (categoryId) =>{
     data.data?.forEach((content) =>{
         
         const div = document.createElement('div');
+
+        const seconds = content.others?.posted_date;
+        const hours = Math.floor(seconds / 3600);
+        const remainingSeconds = seconds % 3600;
+        const minutes = Math.floor(remainingSeconds / 60);
+        console.log(hours, minutes)
+
         div.innerHTML = `
         <div class="card bg-base-100 shadow-xl">
             <figure><img class="thumbnail-img w-full lg:w-[312px] lg:h-[200px] md:w-full md:h-[200px]" src="${content?.thumbnail}" /></figure>
+            <div class="text-center lg:right-4 lg:top-40 lg:absolute  rounded bg-[#171717] text-white p-1"><h2>${hours}hrs ${minutes} min ago</h2></div>
             <div class="card-body">
-                <div class="flex justify-start gap-1">
+                <div class="flex justify-start items-center gap-1">
                     <div><img class="rounded-full w-[40px] h-[40px]" src="${content.authors[0]?.profile_picture}"></div>
                     <div><h2 class="card-title">${content.title}</h2></div>
                 </div>
                 <div class="flex ml-12 gap-4">
                     <div><h2>${content.authors[0]?.profile_name}</h2></div>
-                    <h2>${content.authors[0].verified ? '<img src="fi_10629607.svg"/>' : ''}</h2>
+                    <div><h2>${content.authors[0].verified? '<img src="fi_10629607.svg"/>' : ''}</h2></div>
                 </div>
-                <div class="ml-12"><h2>${content.others?.views}</h2></div>
-
+                <div class="ml-12"><h2 >${content.others?.views}</h2></div>
             </div>
+            
         </div>
         `;
         cardContainer.appendChild(div);

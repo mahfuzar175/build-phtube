@@ -7,7 +7,7 @@ const handleCategory = async() =>{
     data.data.slice(0, 4).forEach((category) =>{
         const div = document.createElement("div");
         div.innerHTML = `
-        <a onclick="handleLoadCategory('${category.category_id}')" class="btn normal-case text-base hover:bg-[#FF1F3D] hover:text-white">${category.category}</a>
+        <a onclick="handleLoadCategory('${category.category_id}')" class="btn normal-case text-base hover:bg-[#FF1F3D] hover:text-white mt-4 mb-4">${category.category}</a>
         `;
         tabContainer.appendChild(div);
     });
@@ -22,6 +22,8 @@ const handleLoadCategory = async (categoryId) =>{
     const data = await response.json();
 
     const cardContainer = document.getElementById('card-container');
+
+    cardContainer.innerHTML = "";
     data.data?.forEach((content) =>{
         
         const div = document.createElement('div');
@@ -45,6 +47,11 @@ const handleLoadCategory = async (categoryId) =>{
         cardContainer.appendChild(div);
     })
 };
+
+
+const handleBlog = () =>{
+    window.location.href = 'block.html';
+}
 
 handleCategory();
 handleLoadCategory("1000", "1001", "1003", "1005");

@@ -15,6 +15,7 @@ const handleCategory = async() =>{
     });
 
     console.log(data.data);
+
     
 };
 
@@ -24,38 +25,51 @@ const handleLoadCategory = async (categoryId) => {
     const data = await response.json();
 
     const cardContainer = document.getElementById('card-container');
+    const errorContainer = document.getElementById('error-container');
+    const errorMessageText = document.getElementById('error-message-text');
 
-    cardContainer.innerHTML = "";
-    data.data?.forEach((content) => {
-        const div = document.createElement('div');
-
-        const seconds = content.others?.posted_date;
-        const hours = Math.floor(seconds / 3600);
-        const remainingSeconds = seconds % 3600;
-        const minutes = Math.floor(remainingSeconds / 60);
-        console.log(hours, minutes);
-
-        const timeAgo = seconds? `<div class="text-center lg:right-4 lg:top-40 lg:absolute lg:rounded bg-[#171717] text-white p-1"><h2>${hours}hrs ${minutes} min ago</h2></div>` : '';
-
-        div.innerHTML = `
-        <div class="card bg-base-100 shadow-xl">
-            <figure><img class="thumbnail-img w-full lg:w-[312px] lg:h-[200px] md:w-full md:h-[200px]" src="${content?.thumbnail}" /></figure>
-            ${timeAgo}
-            <div class="card-body">
-                <div class="flex justify-start items-center gap-1">
-                    <div><img class="rounded-full w-[40px] h-[40px]" src="${content.authors[0]?.profile_picture}"></div>
-                    <div><h2 class="card-title">${content.title}</h2></div>
+    if (data.data.length === 0) {
+        errorMessageText.textContent = data.message;
+        errorContainer.classList.remove('hidden');
+        cardContainer.innerHTML = "";
+        
+    }
+    else{
+        errorContainer.classList.add('hidden');
+        cardContainer.innerHTML = "";
+        data.data?.forEach((content) => {
+            const div = document.createElement('div');
+    
+            const seconds = content.others?.posted_date;
+            const hours = Math.floor(seconds / 3600);
+            const remainingSeconds = seconds % 3600;
+            const minutes = Math.floor(remainingSeconds / 60);
+            console.log(hours, minutes);
+    
+            const timeAgo = seconds? `<div class="text-center lg:right-4 lg:top-40 lg:absolute lg:rounded bg-[#171717] text-white p-1"><h2>${hours}hrs ${minutes} min ago</h2></div>` : '';
+    
+            div.innerHTML = `
+            <div class="card bg-base-100 shadow-xl">
+                <figure><img class="thumbnail-img w-full lg:w-[312px] lg:h-[200px] md:w-full md:h-[200px]" src="${content?.thumbnail}" /></figure>
+                ${timeAgo}
+                <div class="card-body">
+                    <div class="flex justify-start items-center gap-1">
+                        <div><img class="rounded-full w-[40px] h-[40px]" src="${content.authors[0]?.profile_picture}"></div>
+                        <div><h2 class="card-title">${content.title}</h2></div>
+                    </div>
+                    <div class="flex ml-12 gap-4">
+                        <div><h2>${content.authors[0]?.profile_name}</h2></div>
+                        <div><h2>${content.authors[0].verified ? '<img src="fi_10629607.svg"/>' : ''}</h2></div>
+                    </div>
+                    <div class="ml-12"><h2>${content.others?.views}</h2></div>
                 </div>
-                <div class="flex ml-12 gap-4">
-                    <div><h2>${content.authors[0]?.profile_name}</h2></div>
-                    <div><h2>${content.authors[0].verified ? '<img src="fi_10629607.svg"/>' : ''}</h2></div>
-                </div>
-                <div class="ml-12"><h2>${content.others?.views}</h2></div>
             </div>
-        </div>
-        `;
-        cardContainer.appendChild(div);
-    })
+            `;
+            cardContainer.appendChild(div);
+        })
+    }
+
+    
 };
 
 const handleBlog = () =>{

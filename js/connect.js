@@ -14,11 +14,8 @@ const handleCategory = async() =>{
         tabContainer.appendChild(div);
     });
 
-    console.log(data.data);
-
-    
+    console.log(data.data); 
 };
-
 
 const handleLoadCategory = async (categoryId) => {
     const response = await fetch(`https://openapi.programming-hero.com/api/videos/category/${categoryId}`);
@@ -37,6 +34,7 @@ const handleLoadCategory = async (categoryId) => {
     else{
         errorContainer.classList.add('hidden');
         cardContainer.innerHTML = "";
+
         data.data?.forEach((content) => {
             const div = document.createElement('div');
     
@@ -72,10 +70,16 @@ const handleLoadCategory = async (categoryId) => {
     
 };
 
+
 const handleBlog = () =>{
     window.location.href = 'block.html';
+}
+
+const handleHome = () =>{
+    window.location.href = 'index.html';
 }
 
 
 handleCategory();
 handleLoadCategory("1000", "1001", "1003", "1005");
+

@@ -76,5 +76,6 @@ const handleBlog = () =>{
     window.location.href = 'block.html';
 }
 
+
 handleCategory();
 handleLoadCategory("1000", "1001", "1003", "1005");

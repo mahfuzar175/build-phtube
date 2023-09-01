@@ -11,199 +11,212 @@
   />
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <h1 class="text-center font-extrabold text-5xl mt-10">JavaScript Concepts</h1>
-    <div class="m-10">
-        <section>
-            <h2 class="font-bold text-2xl list-disc">1. Discuss the scope of var, let, and const</h2>
-            <p class="text-lg">In JavaScript, users can declare a variable using 3 keywords that are var, let, and const. In this article, we will see the differences between the var, let, and const keywords. We will discuss the scope and other required concepts about each keyword.</p>
-            <div class="ml-4">
-                <div>
-                    <li class="font-bold text-lg underline">var</li>
-                    <p>The var is the oldest keyword to declare a variable in JavaScript. </p>
-
-                    <p class="mb-4"><span class="underline">Function Scope:</span> Variables declared with var are function-scoped. This means that they are only accessible within the function in which they are declared. If a var variable is declared outside of any function, it becomes a global variable, which can be accessed from anywhere in the script.</p>
-
-                    <p class="mb-4"><span class="underline">Hoisting:</span> Variables declared with var are hoisted to the top of their containing function or script. This means that you can use a var variable before it's actually declared in the code, but it will be undefined until its declaration is reached during execution.</p>
-                    <p class="font-semibold">Example: Variable ‘a’ is declared globally. So, the scope of the variable ‘a’ is global, and it can be accessible everywhere in the program. The output shown is in the console.</p>
-                    <pre class="font-medium text-red-600">
-                        var a = 10
-                        function f() {
-                            console.log(a)
-                        }
-                        f();
-                        console.log(a);                  
-                    </pre>
-                </div>
-                <div>
-                    <li class="font-bold text-lg underline">let</li>
-                    <p>The let keyword is an improved version of the var keyword.</p>
-
-                    <p class="mb-4"><span class="underline">Block Scope:</span> Variables declared with let are block-scoped, meaning they are only accessible within the block (enclosed by {}) in which they are declared. This includes blocks within functions, loops, and conditional statements.</p>
-
-                    <p class="mb-4"><span class="underline">No Hoisting:</span> Unlike var, let variables are not hoisted. They exist in the scope in which they are defined, but they are not accessible before their declaration.</p>
-                    <p class="font-semibold">Example: The output is shown in the console.</p>
-                    <pre class="font-medium text-red-600">
-                        let a = 10;
-                        function f() {
-                            let b = 9
-                            console.log(b);
-                            console.log(a);
-                        }
-                        f();                                          
-                    </pre>
-                </div>
-                <div>
-                    <li class="font-bold text-lg underline">const</li>
-                    <p>The const keyword has all the properties that are the same as the let keyword, except the user cannot update it.</p>
-
-                    <p class="mb-4"><span class="underline">Block Scope:</span> Like let, const variables are block-scoped and can only be accessed within the block in which they are declared.</p>
-
-                    <p class="mb-4"><span class="underline">Constant Value:</span> const variables are used to declare constants, and once a value is assigned to a const variable, it cannot be reassigned. However, it's important to note that the value itself may be mutable if it's an object or array. You can modify the properties or elements of a const object or array, but you cannot reassign it to a new object or array.</p>
-                    <p class="font-semibold">Example: We are changing the value of the const variable so that it returns an error. The output is shown in the console.</p>
-                    <pre class="font-medium text-red-600">
-                    <pre class="font-medium text-red-600">
-                        const a = 10;
-                        function f() {
-                            a = 9
-                            console.log(a)
-                        }
-                        f();                                                                 
-                    </pre>
-                </div>
+<body class="p-8">
+    <header class="mb-4">
+        <nav>
+          <div class="navbar bg-base-100">
+            <div class="navbar-start">
+              <img src="Logo.png" alt="">
             </div>
-            
-        </section>
-        <section>
-            <h2 class="font-bold text-2xl list-disc mt-4">2. Tell us the use cases of null and undefined</h2>
-            <p class="text-lg mb-4">In JavaScript, null and undefined data types may appear similar when viewed at an abstract level. As a result, developers often need clarification and help when debugging errors related to these two values.</p>
-            <p class="text-lg">This article will go through the definitions of null and undefined along with their similarities, fundamental differences, and how you could utilize each of these values in your program.</p>
-            <div class="ml-4">
-                <div>
-                    <h2 class="font-bold text-lg underline">What is Null?</h2>
-                    <p>The primitive type null indicates the intentional absence of a value. Therefore, in JavaScript, programmers often assign null to a variable to denote that the variable is declared and initialized and currently doesn’t hold a value. Still, a value can be expected in the future.</p>
 
-                    <p class="font-semibold mt-4">Example: The following code snippet shows how to assign null data type to a variable.</p>
-                    <pre class="font-medium text-red-600">
-                        var nullVar = null;
-
-                        console.log("Initial value of nullVar is ", nullVar);
-                        /*Result:
-                        Initial value of nullVar is null
-                        */                 
-                    </pre>
+          </div>
+        </nav>
+    </header>
+    <hr>
+    <main>
+        <h1 class="text-center font-extrabold text-5xl mt-10">JavaScript Concepts</h1>
+        <div class="m-10">
+            <section>
+                <h2 class="font-bold text-2xl list-disc">1. Discuss the scope of var, let, and const</h2>
+                <p class="text-lg">In JavaScript, users can declare a variable using 3 keywords that are var, let, and const. In this article, we will see the differences between the var, let, and const keywords. We will discuss the scope and other required concepts about each keyword.</p>
+                <div class="ml-4">
+                    <div>
+                        <li class="font-bold text-lg underline">var</li>
+                        <p>The var is the oldest keyword to declare a variable in JavaScript. </p>
+    
+                        <p class="mb-4"><span class="underline">Function Scope:</span> Variables declared with var are function-scoped. This means that they are only accessible within the function in which they are declared. If a var variable is declared outside of any function, it becomes a global variable, which can be accessed from anywhere in the script.</p>
+    
+                        <p class="mb-4"><span class="underline">Hoisting:</span> Variables declared with var are hoisted to the top of their containing function or script. This means that you can use a var variable before it's actually declared in the code, but it will be undefined until its declaration is reached during execution.</p>
+                        <p class="font-semibold">Example: Variable ‘a’ is declared globally. So, the scope of the variable ‘a’ is global, and it can be accessible everywhere in the program. The output shown is in the console.</p>
+                        <pre class="font-medium text-red-600">
+                            var a = 10
+                            function f() {
+                                console.log(a)
+                            }
+                            f();
+                            console.log(a);                  
+                        </pre>
+                    </div>
+                    <div>
+                        <li class="font-bold text-lg underline">let</li>
+                        <p>The let keyword is an improved version of the var keyword.</p>
+    
+                        <p class="mb-4"><span class="underline">Block Scope:</span> Variables declared with let are block-scoped, meaning they are only accessible within the block (enclosed by {}) in which they are declared. This includes blocks within functions, loops, and conditional statements.</p>
+    
+                        <p class="mb-4"><span class="underline">No Hoisting:</span> Unlike var, let variables are not hoisted. They exist in the scope in which they are defined, but they are not accessible before their declaration.</p>
+                        <p class="font-semibold">Example: The output is shown in the console.</p>
+                        <pre class="font-medium text-red-600">
+                            let a = 10;
+                            function f() {
+                                let b = 9
+                                console.log(b);
+                                console.log(a);
+                            }
+                            f();                                          
+                        </pre>
+                    </div>
+                    <div>
+                        <li class="font-bold text-lg underline">const</li>
+                        <p>The const keyword has all the properties that are the same as the let keyword, except the user cannot update it.</p>
+    
+                        <p class="mb-4"><span class="underline">Block Scope:</span> Like let, const variables are block-scoped and can only be accessed within the block in which they are declared.</p>
+    
+                        <p class="mb-4"><span class="underline">Constant Value:</span> const variables are used to declare constants, and once a value is assigned to a const variable, it cannot be reassigned. However, it's important to note that the value itself may be mutable if it's an object or array. You can modify the properties or elements of a const object or array, but you cannot reassign it to a new object or array.</p>
+                        <p class="font-semibold">Example: We are changing the value of the const variable so that it returns an error. The output is shown in the console.</p>
+                        <pre class="font-medium text-red-600">
+                        <pre class="font-medium text-red-600">
+                            const a = 10;
+                            function f() {
+                                a = 9
+                                console.log(a)
+                            }
+                            f();                                                                 
+                        </pre>
+                    </div>
                 </div>
-                <div>
-                    <h2 class="font-bold text-lg underline">What is Undefined?</h2>
-                    <p>undefined is a primitive value automatically assigned by JavaScript to indicate the unintentional absence of any object value.</p>
-
-                    <p class="font-semibold mt-4">Example: Some of the situations where JavaScript assigns the value undefined are:</p>
-                    <li class="font-semibold">To a declared but uninitialized variable.</li>
-                    <pre class="font-medium text-red-600">
-                        //A variable declared without a value assigned.
-
-                        var undefinedVar;
-                        console.log("The value of undefinedVar is ",undefinedVar);
-                        /*
-                        Result:
-                        The value of undefinedVar is undefined.
-                        */                
-                    </pre>
-                    <li class="font-semibold mt-2">To a declared but uninitialized variable.</li>
-                    <pre class="font-medium text-red-600">
-                        //A variable declared without a value assigned.
-
-                        var undefinedVar;
-                        console.log("The value of undefinedVar is ",undefinedVar);
-                        /*
-                        Result:
-                        The value of undefinedVar is undefined.
-                        */                
-                    </pre>
-                    <li class="font-semibold mt-2">The programmer declares the variable without initializing it to any value (not even null).</li>
-                    <li class="font-semibold mt-2">To a non-existent property of an object.</li>
-                    <pre class="font-medium text-red-600">
-                        //A non-existent property in an object.
-
-                        var undefinedObj={};
-                        console.log("The value of non-existent property 'name' is ", undefinedObj.name);
-                        /*
-                        Result:
-                        The value of non-existent property 'name' is undefined.
-                        */               
-                    </pre>
-                    <li class="font-semibold mt-2">To a return value of a function that’s not explicitly defined.</li>
-                    <pre class="font-medium text-red-600">
-                        //A return without an explicit value.
-                        var undefinedRet = function(){
-                            return;
-                        };
-                        console.log("The return value of the function is ",undefinedRet());
-                        /* 
-                        Result:
-                        The return value of the function is undefined.
-                        */              
-                    </pre>
-                    <li class="font-semibold mt-2">To formal arguments of a function without actual arguments.</li>
-                    <pre class="font-medium text-red-600">
-                        //Formal parameters of a function without actual arguments.
-                        var undefinedParam = function(arg1){
-                            console.log("The value of arg1 is ",arg1);
-                        };
-                        undefinedParam();
-                        /*
-                        Result:
-                        The value of arg1 is undefined
-                        */            
-                    </pre>
-                    <li class="font-semibold mt-2">To out-of-bound array elements.</li>
-                    <pre class="font-medium text-red-600">
-                        //Out of bound array elements are undefined.
-                        const array1 = [0,1,2,3];
-                        console.log("The 4th element in the array is ",array1[4]);
-                        /*
-                        Result:
-                        The 4th element in the array is undefined.
-                        */           
-                    </pre>
+                
+            </section>
+            <section>
+                <h2 class="font-bold text-2xl list-disc mt-4">2. Tell us the use cases of null and undefined</h2>
+                <p class="text-lg mb-4">In JavaScript, null and undefined data types may appear similar when viewed at an abstract level. As a result, developers often need clarification and help when debugging errors related to these two values.</p>
+                <p class="text-lg">This article will go through the definitions of null and undefined along with their similarities, fundamental differences, and how you could utilize each of these values in your program.</p>
+                <div class="ml-4">
+                    <div>
+                        <h2 class="font-bold text-lg underline">What is Null?</h2>
+                        <p>The primitive type null indicates the intentional absence of a value. Therefore, in JavaScript, programmers often assign null to a variable to denote that the variable is declared and initialized and currently doesn’t hold a value. Still, a value can be expected in the future.</p>
+    
+                        <p class="font-semibold mt-4">Example: The following code snippet shows how to assign null data type to a variable.</p>
+                        <pre class="font-medium text-red-600">
+                            var nullVar = null;
+    
+                            console.log("Initial value of nullVar is ", nullVar);
+                            /*Result:
+                            Initial value of nullVar is null
+                            */                 
+                        </pre>
+                    </div>
+                    <div>
+                        <h2 class="font-bold text-lg underline">What is Undefined?</h2>
+                        <p>undefined is a primitive value automatically assigned by JavaScript to indicate the unintentional absence of any object value.</p>
+    
+                        <p class="font-semibold mt-4">Example: Some of the situations where JavaScript assigns the value undefined are:</p>
+                        <li class="font-semibold">To a declared but uninitialized variable.</li>
+                        <pre class="font-medium text-red-600">
+                            //A variable declared without a value assigned.
+    
+                            var undefinedVar;
+                            console.log("The value of undefinedVar is ",undefinedVar);
+                            /*
+                            Result:
+                            The value of undefinedVar is undefined.
+                            */                
+                        </pre>
+                        <li class="font-semibold mt-2">To a declared but uninitialized variable.</li>
+                        <pre class="font-medium text-red-600">
+                            //A variable declared without a value assigned.
+    
+                            var undefinedVar;
+                            console.log("The value of undefinedVar is ",undefinedVar);
+                            /*
+                            Result:
+                            The value of undefinedVar is undefined.
+                            */                
+                        </pre>
+                        <li class="font-semibold mt-2">The programmer declares the variable without initializing it to any value (not even null).</li>
+                        <li class="font-semibold mt-2">To a non-existent property of an object.</li>
+                        <pre class="font-medium text-red-600">
+                            //A non-existent property in an object.
+    
+                            var undefinedObj={};
+                            console.log("The value of non-existent property 'name' is ", undefinedObj.name);
+                            /*
+                            Result:
+                            The value of non-existent property 'name' is undefined.
+                            */               
+                        </pre>
+                        <li class="font-semibold mt-2">To a return value of a function that’s not explicitly defined.</li>
+                        <pre class="font-medium text-red-600">
+                            //A return without an explicit value.
+                            var undefinedRet = function(){
+                                return;
+                            };
+                            console.log("The return value of the function is ",undefinedRet());
+                            /* 
+                            Result:
+                            The return value of the function is undefined.
+                            */              
+                        </pre>
+                        <li class="font-semibold mt-2">To formal arguments of a function without actual arguments.</li>
+                        <pre class="font-medium text-red-600">
+                            //Formal parameters of a function without actual arguments.
+                            var undefinedParam = function(arg1){
+                                console.log("The value of arg1 is ",arg1);
+                            };
+                            undefinedParam();
+                            /*
+                            Result:
+                            The value of arg1 is undefined
+                            */            
+                        </pre>
+                        <li class="font-semibold mt-2">To out-of-bound array elements.</li>
+                        <pre class="font-medium text-red-600">
+                            //Out of bound array elements are undefined.
+                            const array1 = [0,1,2,3];
+                            console.log("The 4th element in the array is ",array1[4]);
+                            /*
+                            Result:
+                            The 4th element in the array is undefined.
+                            */           
+                        </pre>
+                    </div>
                 </div>
-            </div>
-            
-        </section>
-
-        <section>
-            <h2 class="font-bold text-2xl">3. What do you mean by REST API?</h2>
-            <p>REST API stands for Representational State Transfer Application Programming Interface. It is a set of architectural principles and constraints for designing and interacting with web services. REST is not a specific technology or protocol but rather a style of designing networked applications.</p>
-            <p class="mt-4 mb-4">The key principles and characteristics of RESTful APIs include:</p>
-
-            <div class="ml-6">
-                <li class="font-bold">Statelessness:</li>
-                <p>Each request from a client to a server must contain all the information needed to understand and process the request. In other words, the server should not rely on any previous requests or shared state between requests.</p>
+                
+            </section>
     
-                <li class="font-bold mt-4">Client-Server Architecture:</li>
-                <p>REST APIs should have a consistent and predictable interface, including the use of standard HTTP methods such as GET (for retrieving data), POST (for creating data), PUT (for updating data), and DELETE (for removing data). Resources are typically identified by URLs.</p>
+            <section>
+                <h2 class="font-bold text-2xl">3. What do you mean by REST API?</h2>
+                <p>REST API stands for Representational State Transfer Application Programming Interface. It is a set of architectural principles and constraints for designing and interacting with web services. REST is not a specific technology or protocol but rather a style of designing networked applications.</p>
+                <p class="mt-4 mb-4">The key principles and characteristics of RESTful APIs include:</p>
     
-                <li class="font-bold mt-4">Resource-Based:</li>
-                <p>In a RESTful API, everything is treated as a resource, which can be represented as a URL. Resources are manipulated using standard HTTP methods.</p>
-    
-                <li class="font-bold mt-4">Representation:</li>
-                <p>Resources can have multiple representations, such as JSON, XML, or HTML. Clients can specify the desired representation using the HTTP Accept header in their requests.</p>
-    
-                <li class="font-bold mt-4">Stateless Communication:</li>
-                <p>Each request from the client to the server must include all the necessary information for the server to fulfill the request. The server should not store any client state between requests.</p>
-    
-                <li class="font-bold mt-4">Layered System: </li>
-                <p>A client may interact with a network of intermediary servers (proxies, caches, load balancers, etc.) without being aware of their existence. This layered architecture enhances scalability and flexibility.</p>
-    
-                <li class="font-bold mt-4">Cacheability: </li>
-                <p>RResponses from the server can be explicitly marked as cacheable or non-cacheable. This helps improve performance by allowing clients to cache responses when appropriate.</p>
-    
-                <li class="font-bold mt-4">Stateless Communication: </li>
-                <p>Each request from the client to the server must include all the necessary information for the server to fulfill the request. The server should not store any client state between requests.</p>
-            </div>
-            <p class="mt-4">RESTful APIs are widely employed in the creation of web services that are accessible via the internet, rendering them a favored option for crafting APIs tailored to mobile applications, web-based platforms, and a diverse array of distributed systems. They offer a simple and adaptable means to expose and access data and functionalities across the web.</p>
-            
-        </section>
-    </div>
+                <div class="ml-6">
+                    <li class="font-bold">Statelessness:</li>
+                    <p>Each request from a client to a server must contain all the information needed to understand and process the request. In other words, the server should not rely on any previous requests or shared state between requests.</p>
+        
+                    <li class="font-bold mt-4">Client-Server Architecture:</li>
+                    <p>REST APIs should have a consistent and predictable interface, including the use of standard HTTP methods such as GET (for retrieving data), POST (for creating data), PUT (for updating data), and DELETE (for removing data). Resources are typically identified by URLs.</p>
+        
+                    <li class="font-bold mt-4">Resource-Based:</li>
+                    <p>In a RESTful API, everything is treated as a resource, which can be represented as a URL. Resources are manipulated using standard HTTP methods.</p>
+        
+                    <li class="font-bold mt-4">Representation:</li>
+                    <p>Resources can have multiple representations, such as JSON, XML, or HTML. Clients can specify the desired representation using the HTTP Accept header in their requests.</p>
+        
+                    <li class="font-bold mt-4">Stateless Communication:</li>
+                    <p>Each request from the client to the server must include all the necessary information for the server to fulfill the request. The server should not store any client state between requests.</p>
+        
+                    <li class="font-bold mt-4">Layered System: </li>
+                    <p>A client may interact with a network of intermediary servers (proxies, caches, load balancers, etc.) without being aware of their existence. This layered architecture enhances scalability and flexibility.</p>
+        
+                    <li class="font-bold mt-4">Cacheability: </li>
+                    <p>RResponses from the server can be explicitly marked as cacheable or non-cacheable. This helps improve performance by allowing clients to cache responses when appropriate.</p>
+        
+                    <li class="font-bold mt-4">Stateless Communication: </li>
+                    <p>Each request from the client to the server must include all the necessary information for the server to fulfill the request. The server should not store any client state between requests.</p>
+                </div>
+                <p class="mt-4">RESTful APIs are widely employed in the creation of web services that are accessible via the internet, rendering them a favored option for crafting APIs tailored to mobile applications, web-based platforms, and a diverse array of distributed systems. They offer a simple and adaptable means to expose and access data and functionalities across the web.</p>
+                
+            </section>
+        </div>
+    </main>
 </body>
 </html>

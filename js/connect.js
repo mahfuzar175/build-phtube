@@ -4,23 +4,26 @@ const handleCategory = async() =>{
 
     const tabContainer = document.getElementById('tab-container');
 
+    const trimedData = data.data.slice(0, 4);
 
-    data.data.slice(0, 4).forEach((category) =>{
+    trimedData.forEach((category) =>{
         const div = document.createElement("div");
         div.innerHTML = `
         <a onclick="handleLoadCategory('${category.category_id}')" class="btn normal-case text-base hover:bg-[#FF1F3D] hover:text-white mt-4 mb-4">${category.category}</a>
         `;
 
         tabContainer.appendChild(div);
+        
     });
 
-    console.log(data.data); 
+    console.log(data.data);
+    
 };
 
 const handleLoadCategory = async (categoryId) => {
     const response = await fetch(`https://openapi.programming-hero.com/api/videos/category/${categoryId}`);
     const data = await response.json();
-
+    
     const cardContainer = document.getElementById('card-container');
     const errorContainer = document.getElementById('error-container');
     const errorMessageText = document.getElementById('error-message-text');
@@ -64,10 +67,9 @@ const handleLoadCategory = async (categoryId) => {
             </div>
             `;
             cardContainer.appendChild(div);
+            
         })
-    }
-
-    
+    } 
 };
 
 
@@ -78,7 +80,6 @@ const handleBlog = () =>{
 const handleHome = () =>{
     window.location.href = 'index.html';
 }
-
 
 handleCategory();
 handleLoadCategory("1000", "1001", "1003", "1005");

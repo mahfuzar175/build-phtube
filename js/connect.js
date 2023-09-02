@@ -1,3 +1,5 @@
+let sortByViewsAsc = true;
+
 const handleCategory = async() =>{
     const response = await fetch("https://openapi.programming-hero.com/api/videos/categories");
     const data = await response.json();
@@ -23,6 +25,13 @@ const handleCategory = async() =>{
 const handleLoadCategory = async (categoryId) => {
     const response = await fetch(`https://openapi.programming-hero.com/api/videos/category/${categoryId}`);
     const data = await response.json();
+
+
+    data.data.sort((a, b) => {
+        const viewsA = parseInt(a.others.views);
+        const viewsB = parseInt(b.others.views);
+        return sortByViewsAsc ? viewsA - viewsB : viewsB - viewsA;
+    });
     
     const cardContainer = document.getElementById('card-container');
     const errorContainer = document.getElementById('error-container');
@@ -73,6 +82,16 @@ const handleLoadCategory = async (categoryId) => {
 };
 
 
+const sortByViews = () => {
+
+    sortByViewsAsc = !sortByViewsAsc;
+    const categoryId = getCurrentCategoryId();
+    handleLoadCategory(categoryId);
+
+};
+
+
+
 const handleBlog = () =>{
     window.location.href = 'block.html';
 }
@@ -80,6 +99,13 @@ const handleBlog = () =>{
 const handleHome = () =>{
     window.location.href = 'index.html';
 }
+
+
+const getCurrentCategoryId = () => {
+
+    return '1000'; 
+
+};
 
 handleCategory();
 handleLoadCategory("1000", "1001", "1003", "1005");
